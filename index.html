@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ипотечный калькулятор</title>
+</head>
+<body>
+    <h1>Ипотечный калькулятор</h1>
+
+    <!-- Форма для ввода данных -->
+    <form action="/" method="post">
+        <label for="amount">Сумма кредита (в рублях):</label>
+        <input type="text" id="amount" name="amount" required><br><br>
+
+        <label for="rate">Годовая процентная ставка (%):</label>
+        <input type="text" id="rate" name="rate" required><br><br>
+
+        <label for="years">Срок кредита (в годах):</label>
+        <input type="text" id="years" name="years" required><br><br>
+
+        <input type="submit" value="Рассчитать">
+    </form>
+
+    <!-- Если есть ежемесячный платеж, отобразим его -->
+    {% if monthly_payment %}
+        <h2>Ежемесячный платеж: {{ monthly_payment | round(2) }} рублей</h2>
+    {% endif %}
+
+</body>
+</html>
